@@ -1,4 +1,5 @@
 import Search from './models/Search';
+import { elements } from './views/base';
 
 /*** Global state of app ***/
 /*  -Search Object
@@ -27,7 +28,7 @@ const controlSearch = async () => {
     }
 } 
 
-document.querySelector('.search').addEventListener('submit', e => {
+elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
     controlSearch();
 })
