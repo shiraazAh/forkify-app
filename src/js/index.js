@@ -1,5 +1,6 @@
 import Search from './models/Search';
 import { elements } from './views/base';
+import * as searchView from './views/searchViews';
 
 /*** Global state of app ***/
 /*  -Search Object
