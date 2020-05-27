@@ -20,6 +20,8 @@ const renderRecipe = recipe => {
     elements.searchResList.insertAdjacentHTML("beforeend", markup);
 }
 
+export const clearInput = () => elements.searchInput.value = '';
+
 export const renderResults = recipes => {
     recipes.forEach(recipe => renderRecipe(recipe));
 }
