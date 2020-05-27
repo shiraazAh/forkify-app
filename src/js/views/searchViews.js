@@ -22,6 +22,10 @@ const renderRecipe = recipe => {
 
 export const clearInput = () => elements.searchInput.value = '';
 
+export const clearResults = () => {
+    elements.searchResList.innerHTML = '';
+}
+
 export const renderResults = recipes => {
     recipes.forEach(recipe => renderRecipe(recipe));
 }
