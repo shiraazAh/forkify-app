@@ -25,12 +25,16 @@ const controlSearch = async () => {
         searchView.clearResults();
         renderLoader(elements.searchRes);
 
-        // 4) Search for recipes
-        await state.search.getResults();
+        try {
+            // 4) Search for recipes
+            await state.search.getResults();
 
-        // 5) Render results on UI 
-        searchView.renderResults(state.search.result); 
-        clearLoader();
+            // 5) Render results on UI 
+            searchView.renderResults(state.search.result); 
+            clearLoader();
+        } catch (err) {
+            alert(`Something went wrong: ${err}`);
+        }
     }
 } 
 
@@ -79,7 +83,7 @@ const controlRecipe = async() => {
 
 
             // 5) Render recipe
-            
+
         } catch (err) {
             alert(`Something went wrong: ${err}`);
         }
