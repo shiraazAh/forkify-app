@@ -52,5 +52,40 @@ elements.searchResPages.addEventListener('click', e => {
 })
 
 
-/* Recipe Model */
+/* Recipe Controller */
+
+const controlRecipe = async() => {
+    const hash = window.location.hash;
+    const id = hash.replace('#', '');
+
+    if (id) {
+        // 1) Prepare UI For Results
+
+        // 2) Create new recipe object and add to state
+        state.recipe = new Recipe(id);
+        console.log(state.recipe);
+        // renderLoader(elements.searchRes);
+        
+        try {
+            // 3) Get Recipe Data
+            await state.recipe.getResults();
+
+            console.log(state.recipe.getResults());
+
+            // 4) Calculate servings and time
+
+            state.recipe.calcTime();
+            state.recipe.calcServings();
+
+
+            // 5) Render recipe
+            
+        } catch (err) {
+            alert(`Something went wrong: ${err}`);
+        }
+    }
+}
+
+window.addEventListener('hashchange', controlRecipe);
+window.addEventListener('load', controlRecipe);
 
