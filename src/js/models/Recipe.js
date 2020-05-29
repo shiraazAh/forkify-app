@@ -5,7 +5,7 @@ export default class Recipe {
         this.id = id;
     }
 
-    async getResults() {
+    async getResults(id) {
         try {
         const res = await axios(`https://forkify-api.herokuapp.com/api/get?rId=${this.id}`);
         this.ingredients = res.data.recipe.ingredients;
@@ -19,7 +19,7 @@ export default class Recipe {
             alert(error);
         }
     }
-    
+
     calcTime() {
         // Assuming that we need 15 min for each 3 ingredients
         const numIng = this.ingredients.length;
