@@ -20,6 +20,16 @@ const limitRecipeTitle = (title, limit = 17) => {
     return title;
 }
 
+export const higlightRecipeLinks = id => {
+
+    const all = Array.from(document.querySelectorAll('.results__link'));
+
+    all.forEach(el => el.classList.remove("results__link--active"))
+
+    return document.querySelector(`a[href="#${id}"]`).classList.add('results__link--active');
+
+}
+
 // Create results/Recipe HTML
 const renderRecipe = recipe => {
     const markup = `

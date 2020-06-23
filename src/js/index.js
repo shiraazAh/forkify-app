@@ -70,9 +70,11 @@ const controlRecipe = async() => {
         recipeView.clearRecipe();
         renderLoader(elements.recipe)
 
+        // Result link styling
+        if(state.search) searchView.higlightRecipeLinks(id);
+
         // 2) Create new recipe object and add to state
         state.recipe = new Recipe(id);
-        // renderLoader(elements.searchRes);
         
         try {
             // 3) Get Recipe Data
